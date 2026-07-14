@@ -8,6 +8,7 @@ import Licencias from './components/Licencias.jsx';
 import Instalacion from './components/Instalacion.jsx';
 import Permisos from './components/Permisos.jsx';
 import Paquetes from './components/Paquetes.jsx';
+import Nginx from './components/Nginx.jsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Link to="/instalacion" className="nav-link">Instalación</Link>
             <Link to="/permisos" className="nav-link">Permisos</Link>
             <Link to="/paquetes" className="nav-link">Paquetes</Link>
+            <Link className="nav-link" to="/nginx">Nginx</Link>
           </nav>
         </aside>
 
@@ -34,6 +36,7 @@ function App() {
             <Route path="/instalacion" element={<Instalacion />} />
             <Route path="/permisos" element={<Permisos />} />
             <Route path="/paquetes" element={<Paquetes />} />
+            <Route path="/nginx" element={<Nginx />} />
           </Routes>
         </main>
 

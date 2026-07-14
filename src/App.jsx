@@ -7,6 +7,7 @@ import Inicio from './components/Inicio.jsx';
 import Licencias from './components/Licencias.jsx';
 import Instalacion from './components/Instalacion.jsx';
 import Permisos from './components/Permisos.jsx';
+import Paquetes from './components/Paquetes.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Link to="/licencias" className="nav-link">Licencias</Link>
             <Link to="/instalacion" className="nav-link">Instalación</Link>
             <Link to="/permisos" className="nav-link">Permisos</Link>
+            <Link to="/paquetes" className="nav-link">Paquetes</Link>
           </nav>
         </aside>
 
@@ -31,6 +33,7 @@ function App() {
             <Route path="/licencias" element={<Licencias />} />
             <Route path="/instalacion" element={<Instalacion />} />
             <Route path="/permisos" element={<Permisos />} />
+            <Route path="/paquetes" element={<Paquetes />} />
           </Routes>
         </main>
 

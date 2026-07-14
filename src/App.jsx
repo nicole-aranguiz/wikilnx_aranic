@@ -9,6 +9,7 @@ import Instalacion from './components/Instalacion.jsx';
 import Permisos from './components/Permisos.jsx';
 import Paquetes from './components/Paquetes.jsx';
 import Nginx from './components/Nginx.jsx';
+import Prompts from './components/Prompts.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Link to="/permisos" className="nav-link">Permisos</Link>
             <Link to="/paquetes" className="nav-link">Paquetes</Link>
             <Link className="nav-link" to="/nginx">Nginx</Link>
+            <Link className="nav-link" to="/prompts">Prompts</Link>
           </nav>
         </aside>
 
@@ -37,6 +39,7 @@ function App() {
             <Route path="/permisos" element={<Permisos />} />
             <Route path="/paquetes" element={<Paquetes />} />
             <Route path="/nginx" element={<Nginx />} />
+            <Route path="/prompts" element={<Prompts />} />
           </Routes>
         </main>
 

@@ -6,6 +6,7 @@ import './App.css';
 import Inicio from './components/Inicio.jsx';
 import Licencias from './components/Licencias.jsx';
 import Instalacion from './components/Instalacion.jsx';
+import Permisos from './components/Permisos.jsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Link to="/" className="nav-link">Inicio</Link>
             <Link to="/licencias" className="nav-link">Licencias</Link>
             <Link to="/instalacion" className="nav-link">Instalación</Link>
+            <Link to="/permisos" className="nav-link">Permisos</Link>
           </nav>
         </aside>
 
@@ -28,6 +30,7 @@ function App() {
             <Route path="/" element={<Inicio />} />
             <Route path="/licencias" element={<Licencias />} />
             <Route path="/instalacion" element={<Instalacion />} />
+            <Route path="/permisos" element={<Permisos />} />
           </Routes>
         </main>
 

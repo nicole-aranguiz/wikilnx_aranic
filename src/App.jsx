@@ -1,25 +1,36 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Inicio from './components/Inicio';
-import Licencias from './components/Licencias';
-import './App.css'; 
+import './App.css';
+
+// Importación de componentes desde la carpeta src
+import Inicio from './components/Inicio.jsx';
+import Licencias from './components/Licencias.jsx';
+import Instalacion from './components/Instalacion.jsx';
 
 function App() {
   return (
     <Router>
       <div className="layout">
-        <nav className="sidebar">
-          <h2>Wiki Linux</h2>
-          <Link className="nav-link" to="/">Inicio</Link>
-          <Link className="nav-link" to="/licencias">Licencias</Link>
-        </nav>
+        
+        {/* Barra Lateral */}
+        <aside className="sidebar">
+          <h2>Mi Wiki Linux</h2>
+          <nav>
+            <Link to="/" className="nav-link">Inicio</Link>
+            <Link to="/licencias" className="nav-link">Licencias</Link>
+            <Link to="/instalacion" className="nav-link">Instalación</Link>
+          </nav>
+        </aside>
 
+        {/* Área de Contenido */}
         <main className="content">
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/licencias" element={<Licencias />} />
+            <Route path="/instalacion" element={<Instalacion />} />
           </Routes>
         </main>
+
       </div>
     </Router>
   );

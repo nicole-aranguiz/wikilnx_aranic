@@ -1,37 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// src/App.jsx
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Inicio from './components/Inicio';
+import Licencias from './components/Licencias';
+import Instalacion from './components/Instalacion';
+import Permisos from './components/Permisos';
+import Paquetes from './components/Paquetes';
+import Nginx from './components/Nginx';
+import Prompts from './components/Prompts';
 import './App.css';
-
-// Importación de componentes desde la carpeta src
-import Inicio from './components/Inicio.jsx';
-import Licencias from './components/Licencias.jsx';
-import Instalacion from './components/Instalacion.jsx';
-import Permisos from './components/Permisos.jsx';
-import Paquetes from './components/Paquetes.jsx';
-import Nginx from './components/Nginx.jsx';
-import Prompts from './components/Prompts.jsx';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="layout">
-        
         {/* Barra Lateral */}
-        <aside className="sidebar">
-          <h2>Mi Wiki Linux</h2>
-          <nav>
-            <Link to="/" className="nav-link">Inicio</Link>
-            <Link to="/licencias" className="nav-link">Licencias</Link>
-            <Link to="/instalacion" className="nav-link">Instalación</Link>
-            <Link to="/permisos" className="nav-link">Permisos</Link>
-            <Link to="/paquetes" className="nav-link">Paquetes</Link>
-            <Link className="nav-link" to="/nginx">Nginx</Link>
-            <Link className="nav-link" to="/prompts">Prompts</Link>
-          </nav>
-        </aside>
+        <nav className="sidebar">
+          <h2 style={{ color: '#d81b60' }}>Wiki Linux</h2>
+          
+          <Link to="/" className="nav-btn">Inicio</Link>
+          <Link to="/licencias" className="nav-btn">Licencias</Link>
+          <Link to="/instalacion" className="nav-btn">Instalación</Link>
+          <Link to="/permisos" className="nav-btn">Permisos</Link>
+          <Link to="/paquetes" className="nav-btn">Paquetes</Link>
+          <Link to="/nginx" className="nav-btn">Nginx</Link>
+          <Link to="/prompts" className="nav-btn">Prompts (IA)</Link>
+        </nav>
 
-        {/* Área de Contenido */}
-        <main className="content">
+        {/* Contenido Principal */}
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/licencias" element={<Licencias />} />
@@ -42,9 +38,8 @@ function App() {
             <Route path="/prompts" element={<Prompts />} />
           </Routes>
         </main>
-
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

@@ -1,90 +1,59 @@
-/* 1. Estructura General y Fuente de Párrafos (Limpia para estudiar) */
-.layout {
-  display: flex;
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Configuración global del cuerpo */
+body { 
+  margin: 0; 
+  font-family: 'Playfair Display', serif !important; /* Fuente elegante */
+  background-color: #ffffff; 
+  color: #000000; 
   min-height: 100vh;
-  font-family: system-ui, -apple-system, sans-serif; 
 }
 
-/* 2. Barra Lateral (Sidebar) */
-.sidebar {
-  width: 260px;
-  background-color: #e6d7ff;
-  color: #4a148c;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #d1b3ff;
+/* El layout principal: ocupa toda la altura de la ventana */
+.layout { 
+  display: flex !important; 
+  min-height: 100vh !important; /* Altura mínima de la pantalla */
 }
 
-/* Título de la sidebar con Sacramento */
-.sidebar h2 {
-  font-family: 'Sacramento', cursive;
-  font-size: 2rem; /* Un poco más grande para compensar la finura de la fuente */
-  border-bottom: 2px solid #e91e63; 
-  padding-bottom: 10px;
-  margin-bottom: 25px;
-  color: #c2185b;
+/* La barra lateral: estirada al máximo y con el estilo solicitado */
+.sidebar { 
+  width: 250px !important; 
+  background-color: #fce4ec !important; /* Fondo rosado claro */
+  padding: 20px !important; 
+  display: flex !important; 
+  flex-direction: column !important; 
+  gap: 15px !important; 
+  border-right: 1px solid #f8bbd0;
+  flex-shrink: 0; /* Evita que la barra se encoja */
 }
 
-/* Enlaces de navegación */
-.nav-link {
-  display: block;
-  margin-bottom: 15px;
-  text-decoration: none;
-  color: #6a1b9a;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 10px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+/* Títulos con letra manuscrita */
+h1, h2 { 
+  font-family: 'Dancing Script', cursive !important; 
+  color: #d81b60 !important; /* Título color rosa */
 }
 
-.nav-link:hover {
-  background-color: #d1b3ff;
-  color: #c2185b;
-}
-
-.nav-link.active {
-  background-color: #e91e63;
-  color: white;
+/* Botones: Estilo elegante */
+.nav-btn {
+  background-color: #d81b60 !important; 
+  color: white !important; 
+  padding: 12px !important;
+  text-decoration: none !important;
+  border-radius: 6px !important;
+  text-align: center !important;
+  font-family: 'Playfair Display', serif !important; 
   font-weight: 600;
+  transition: 0.3s;
 }
 
-/* 3. Área de Contenido Principal */
-.content {
-  flex: 1;
-  padding: 40px;
-  background-color: #fdfaff;
-  color: #333;
+.nav-btn:hover { 
+  background-color: #c2185b !important; 
 }
 
-/* Aplicamos Sacramento a los títulos */
-.content h1, .content h2 {
-  font-family: 'Sacramento', cursive;
-}
-
-.content h1 {
-  color: #c2185b;
-  margin-bottom: 25px;
-  font-size: 3.5rem; /* Tamaño grande para que Sacramento luzca elegante */
-}
-
-.content h2 {
-  color: #7b1fa2;
-  margin-top: 30px;
-  font-size: 2.2rem;
-  border-left: 5px solid #e91e63;
-  padding-left: 15px;
-}
-
-/* Párrafos y listas con la fuente del sistema */
-.content p {
-  line-height: 1.7;
-  font-size: 1.1rem;
-}
-
-.content ul {
-  line-height: 1.7;
-  color: #555;
-  font-size: 1.1rem;
+/* Contenido principal */
+.main-content { 
+  flex: 1; 
+  padding: 40px; 
+  background-color: #ffffff; 
 }

@@ -6,45 +6,42 @@ const Permisos = () => {
       <h1>C · Permisos por línea de comandos</h1>
 
       <section style={{ marginBottom: '30px' }}>
-        <h2>1. Ejecución de comandos</h2>
-        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '15px', borderRadius: '8px' }}>
+        <h2>1. Ejecución y Configuración</h2>
+        <p>A continuación se detallan los comandos utilizados para establecer la estructura de directorios, aplicar permisos restrictivos, cambiar propietarios y configurar bits especiales:</p>
+        
+        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '15px', borderRadius: '8px', marginBottom: '15px' }}>
           <code>mkdir -p ~/demo && cd ~/demo && touch nota.txt && mkdir privado</code><br/>
-          <code>ls -l</code><br/>
           <code>chmod 600 nota.txt</code><br/>
           <code>chmod u+x,go-rwx privado</code><br/>
           <code>sudo chown root:root nota.txt</code><br/>
           <code>sudo mkdir /srv/compartido && sudo chmod 2775 /srv/compartido</code><br/>
-          <code>sudo chmod +t /tmp</code><br/>
-          <code>ls -ld /srv/compartido /tmp</code>
+          <code>sudo chmod +t /tmp</code>
         </div>
+
+        <img src="/ls -l.jpg" alt="Ejecución de comandos básicos" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '5px 0' }} />
+        <img src="/sudo chmod +t.jpg" alt="Proceso de configuración de permisos y bits especiales" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '5px 0' }} />
+        
+        <h3 style={{ marginTop: '20px' }}>Validación final</h3>
+        <img src="/ls -ld compartido.jpg" alt="Verificación final de bits especiales" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '15px 0' }} />
+        <p><em>La 's' en <code>/srv/compartido</code> (SetGID) y la 't' en <code>/tmp</code> (Sticky Bit) confirman la configuración correcta.</em></p>
       </section>
 
       <section style={{ marginBottom: '20px' }}>
         <h2>2. Explicación de permisos (rwx)</h2>
         <p>La cadena <code>-rw-rw-r--</code> se divide en tres grupos de tres caracteres:</p>
         <ul>
-          <li><strong>Propietario (rw-):</strong> Puede leer y escribir el archivo, pero no ejecutarlo.</li>
-          <li><strong>Grupo (rw-):</strong> Los usuarios del grupo tienen permisos de lectura y escritura.</li>
-          <li><strong>Otros (r--):</strong> El resto de usuarios solo puede leer el archivo.</li>
+          <li><strong>Propietario (rw-):</strong> Lectura y escritura.</li>
+          <li><strong>Grupo (rw-):</strong> Lectura y escritura.</li>
+          <li><strong>Otros (r--):</strong> Solo lectura.</li>
         </ul>
-        <p><strong>Nomenclatura numérica:</strong> r=4, w=2, x=1. (Ejemplo: <code>rw-</code> es 4+2=6).</p>
-      </section>
-
-      <section style={{ marginBottom: '20px' }}>
-        <h2>3. Conceptos clave</h2>
-        <p><strong>Chown:</strong> Cambia el propietario y/o grupo de un archivo o directorio. Se necesita <code>sudo</code> porque solo el superusuario puede asignar archivos a otros usuarios.</p>
-        
-        <p><strong>Modos de permiso:</strong></p>
-        <ul>
-          <li><strong>Numérico:</strong> Define permisos mediante la suma de valores (ej. 755). Es directo y rápido.</li>
-          <li><strong>Simbólico:</strong> Usa letras (u=usuario, g=grupo, o=otros) y operadores (+, -, =) para modificar permisos existentes sin cambiar el resto.</li>
-        </ul>
+        <p><strong>Nomenclatura numérica:</strong> r=4, w=2, x=1. Se utiliza para asignar permisos mediante sumatoria de valores posicionales.</p>
+        <p><strong>Nomenclatura simbólica:</strong> Utiliza letras (u=usuario, g=grupo, o=otros) junto con operadores (+, -) para modificar permisos de manera más intuitiva y legible.</p>
       </section>
 
       <section style={{ backgroundColor: '#fff3cd', padding: '15px', borderRadius: '8px' }}>
-        <h2>4. Bits Especiales (s y t)</h2>
-        <p><strong>SetGID (la 's' en 2775):</strong> Cuando se aplica a un directorio, los archivos creados dentro heredan el grupo del directorio, no el del usuario que los creó. Es ideal para carpetas compartidas por un equipo.</p>
-        <p><strong>Sticky Bit (la 't' en /tmp):</strong> Permite que solo el dueño de un archivo o el superusuario puedan borrar o renombrar archivos dentro de un directorio, aunque otros usuarios tengan permisos de escritura. Es vital para directorios temporales compartidos.</p>
+        <h2>3. Bits Especiales (s y t)</h2>
+        <p><strong>SetGID (2775):</strong> Los archivos heredan el grupo del directorio. Ideal para trabajo colaborativo.</p>
+        <p><strong>Sticky Bit (+t en /tmp):</strong> Protege archivos contra borrado accidental por terceros. Vital para directorios temporales.</p>
       </section>
     </div>
   );

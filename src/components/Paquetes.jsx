@@ -5,59 +5,43 @@ const GestoresPaquetes = () => {
     <div style={{ padding: '20px' }}>
       <h1>D · Gestores de paquetes (APT)</h1>
 
+      {/* Seccion 1: Flujo y capturas */}
       <section style={{ marginBottom: '30px' }}>
         <h2>1. Flujo de trabajo en APT</h2>
-        <p>El ciclo de vida estándar para gestionar software en Ubuntu es el siguiente:</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px' }}>
-          <div style={{ borderLeft: '4px solid #d81b60', paddingLeft: '10px' }}>
-            <strong>Update:</strong> <code>sudo apt update</code> - Sincroniza el índice de paquetes local con los repositorios remotos. Es vital para encontrar versiones actuales.
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '10px' }}>
+          <div>
+            <strong>1. Update:</strong> <code>sudo apt update</code>
+            <p>Refresca la base de datos local con los últimos índices de los repositorios.</p>
           </div>
-          <div style={{ borderLeft: '4px solid #d81b60', paddingLeft: '10px' }}>
-            <strong>Search:</strong> <code>apt search [termino]</code> - Permite localizar paquetes en el repositorio buscando por nombre o descripción.
+          
+          <div>
+            <strong>2. Search:</strong> <code>apt search htop</code>
+            <img src="/apt search htop.jpg" alt="Búsqueda htop" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
           </div>
-          <div style={{ borderLeft: '4px solid #d81b60', paddingLeft: '10px' }}>
-            <strong>Show:</strong> <code>apt show [paquete]</code> - Muestra metadatos detallados (tamaño, dependencias, mantenedor) antes de instalar.
+
+          <div>
+            <strong>3. Show:</strong> <code>apt show htop</code>
+            <img src="/apt show htop.jpg" alt="Detalle htop" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
           </div>
-          <div style={{ borderLeft: '4px solid #d81b60', paddingLeft: '10px' }}>
-            <strong>Install:</strong> <code>sudo apt install [paquete]</code> - Descarga e instala el software y sus dependencias necesarias.
+
+          <div>
+            <strong>4. Install:</strong> <code>sudo apt install -y htop tree</code>
+            <img src="/sudo apt install htop tree.jpg" alt="Instalación htop y tree" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
           </div>
         </div>
       </section>
 
-      <section>
-        <h2>2. Criterio de Factibilidad: Monitores de Sistema</h2>
-        <p>Para la necesidad de "monitoreo de recursos", comparamos las siguientes alternativas:</p>
-        
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
-          <thead>
-            <tr style={{ backgroundColor: '#fce4ec' }}>
-              <th style={{ padding: '10px', textAlign: 'left' }}>Herramienta</th>
-              <th style={{ padding: '10px', textAlign: 'left' }}>Pros</th>
-              <th style={{ padding: '10px', textAlign: 'left' }}>Uso ideal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{ padding: '10px' }}><strong>top</strong></td>
-              <td style={{ padding: '10px' }}>Instalado por defecto, muy ligero.</td>
-              <td style={{ padding: '10px' }}>Servidores críticos donde no puedes instalar nada.</td>
-            </tr>
-            <tr>
-              <td style={{ padding: '10px' }}><strong>htop</strong></td>
-              <td style={{ padding: '10px' }}>Interfaz amigable, colores, scroll, mata procesos con F9.</td>
-              <td style={{ padding: '10px' }}>Administración diaria y resolución de problemas.</td>
-            </tr>
-            <tr>
-              <td style={{ padding: '10px' }}><strong>btop</strong></td>
-              <td style={{ padding: '10px' }}>Visualmente avanzado, muestra gráficos en tiempo real.</td>
-              <td style={{ padding: '10px' }}>Monitoreo visual atractivo (estación de trabajo).</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div style={{ marginTop: '20px', backgroundColor: '#f8f9fa', padding: '15px', borderRadius: '8px', borderLeft: '5px solid #d81b60' }}>
-          <strong>Justificación técnica:</strong> Instalamos <code>htop</code>. Es el punto de equilibrio perfecto: es extremadamente ligero, tiene una enorme comunidad (soporte constante) y sus dependencias son mínimas. Es preferible sobre <em>btop</em> en servidores (por peso) y sobre <em>top</em> (por usabilidad).
-        </div>
+      {/* Seccion 2: Actividad de Criterio de Factibilidad */}
+      <section style={{ backgroundColor: '#f0f4f8', padding: '20px', borderRadius: '8px' }}>
+        <h2>2. Actividad: Criterio de Factibilidad</h2>
+        <p>Ante la necesidad de un monitor del sistema, evaluamos tres alternativas:</p>
+        <ul>
+          <li><strong>htop:</strong> Muy ligero, interactivo y visualmente intuitivo.</li>
+          <li><strong>top:</strong> Estándar, instalado por defecto, pero menos amigable.</li>
+          <li><strong>glances:</strong> Muy completo (red, sensores, disco), pero con mayores dependencias (Python).</li>
+        </ul>
+        <p><strong>Justificación:</strong> Instalaría <strong>htop</strong> debido a su equilibrio: tiene un peso mínimo, dependencias reducidas y soporte oficial excelente en los repositorios de Ubuntu, siendo ideal para un servidor sin sobrecargar recursos.</p>
       </section>
     </div>
   );

@@ -77,6 +77,23 @@ const Inicio = () => {
             <em>* La VM utiliza NAT para salida a Internet (necesaria para actualizaciones apt).</em>
           </p>
         </div>
+
+        {/* Evidencia de inicio de sesión exitoso */}
+        <div style={{ marginTop: '30px' }}>
+          <p style={{ textAlign: 'center', fontSize: '0.9rem' }}><em>Fig 3: Estado del sistema al acceder vía SSH</em></p>
+          <img 
+            src="/inicio.jpg" 
+            alt="Mensaje de inicio de sesión del servidor" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '800px', 
+              borderRadius: '8px', 
+              border: '1px solid #ccc', 
+              display: 'block', 
+              margin: '0 auto' 
+            }} 
+          />
+        </div>
       </section>
     </div>
   );

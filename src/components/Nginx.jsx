@@ -1,67 +1,80 @@
 import React from 'react';
 
-const DespliegueNginx = () => {
+const NginxDespliegue = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>E · Nginx y Despliegue del Sitio</h1>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>E · Servidor Web (Nginx) y Despliegue</h1>
 
-      <section style={{ marginBottom: '30px' }}>
-        <h2>1. Instalación de Nginx</h2>
-        <p>Instalamos el servidor web y verificamos su ejecución inicial en el puerto 8080 (mapeado al 80 interno):</p>
-        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '10px', borderRadius: '5px' }}>
-          <code>sudo apt install -y nginx</code>
-        </div>
+      {/* Punto 1 */}
+      <section style={{ marginBottom: '25px' }}>
+        <h2>1. Instalación del servidor web</h2>
+        <p>Ejecutamos: <code>sudo apt install -y nginx</code>. Verificamos el acceso en <code>http://localhost:8080</code> para confirmar que Nginx está activo.</p>
+        <img src="node1.jpg" alt="Instalación Nginx" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }} />
       </section>
 
-      <section style={{ marginBottom: '30px' }}>
-        <h2>2. Preparación del Entorno y Build</h2>
-        <p>Preparamos el servidor para recibir nuestra aplicación frontend:</p>
-        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '10px', borderRadius: '5px' }}>
-          <code>sudo apt install -y nodejs npm git</code><br/>
-          <code>git clone [URL_DE_TU_REPO]</code><br/>
-          <code>cd [TU_CARPETA] && npm install</code><br/>
-          <code>npm run build</code>
-        </div>
-        <p><em>El proceso <code>npm run build</code> genera una carpeta <code>dist/</code>, que contiene la versión optimizada de nuestra web para producción.</em></p>
+      {/* Punto 2 */}
+      <section style={{ marginBottom: '25px' }}>
+        <h2>2. Construcción del sitio</h2>
+        <p>
+          Verificamos la instalación de las dependencias necesarias (<code>node</code> y <code>npm</code>) 
+          y la clonación del repositorio en el servidor:
+        </p>
+        
+        <img src="555.jpg" alt="Verificación de dependencias y repositorio" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px', border: '1px solid #ccc' }} />
+        
+        <p>
+          <em>Nota técnica: Tras confirmar el entorno, se ejecutó <code>npm run build</code> (realizado en 
+          entorno local para optimización de recursos) para generar la carpeta <code>dist/</code> lista 
+          para la publicación.</em>
+        </p>
       </section>
 
-      <section style={{ marginBottom: '30px' }}>
-        <h2>3. Despliegue en el directorio web</h2>
-        <p>Copiamos el contenido a la ruta donde Nginx espera servir los archivos:</p>
-        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '10px', borderRadius: '5px' }}>
-          <code>sudo mkdir -p /var/www/wiki</code><br/>
-          <code>sudo cp -r dist/* /var/www/wiki/</code><br/>
-          <code>sudo chown -R www-data:www-data /var/www/wiki</code>
-        </div>
-        <p><small>Nota: Cambiamos el dueño a <code>www-data</code> para que Nginx tenga permisos de lectura sobre los archivos.</small></p>
+      {/* Punto 3 */}
+      <section style={{ marginBottom: '25px' }}>
+        <h2>3. Copia a la carpeta de Nginx</h2>
+        <p>Creamos el directorio de trabajo y transferimos el contenido:</p>
+        <code>sudo mkdir -p /var/www/wiki</code><br/>
+        <code>sudo cp -r dist/* /var/www/wiki/</code><br/>
+        <code>sudo chown -R www-data:www-data /var/www/wiki</code>
+
+        <img src="333.jpg" alt="Verificación de permisos y archivos" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px', marginTop: '10px' }} />
+      
       </section>
 
-      <section style={{ marginBottom: '30px' }}>
-        <h2>4. Configuración de Nginx</h2>
-        <p>Creamos la configuración específica para nuestra wiki en <code>/etc/nginx/sites-available/wiki</code>:</p>
-        <pre style={{ backgroundColor: '#f4f4f4', padding: '15px', borderRadius: '5px', border: '1px solid #ddd' }}>
-{`server {
-    listen 80 default_server;
-    root /var/www/wiki;
-    index index.html;
-    location / { try_files $uri $uri/ /index.html; }
-}`}
-        </pre>
+      {/* Punto 4 */}
+<section style={{ marginBottom: '25px' }}>
+        <h2>4. Archivo de configuración</h2>
+        <p>
+          Creamos y configuramos el archivo <code>/etc/nginx/sites-available/wiki</code> con la "receta" 
+          proporcionada para el servidor Nginx:
+        </p>
+        
+        {/* Aquí insertamos tu captura 444.jpg que muestra la configuración guardada */}
+        <img src="444.jpg" alt="Contenido del archivo de configuración wiki" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px', border: '1px solid #ccc' }} />
+        
+        <p>
+          <em>Evidencia: Mediante el comando <code>cat</code>, se verifica que la configuración de Nginx se ha guardado correctamente, 
+          estableciendo el directorio raíz en <code>/var/www/wiki</code> y el archivo de índice.</em>
+        </p>
       </section>
 
-      <section style={{ marginBottom: '30px' }}>
-        <h2>5. Activación y Verificación</h2>
-        <p>Enlazamos la configuración y recargamos el servicio:</p>
-        <div style={{ backgroundColor: '#2d2d2d', color: '#f8f8f2', padding: '10px', borderRadius: '5px' }}>
-          <code>sudo ln -s /etc/nginx/sites-available/wiki /etc/nginx/sites-enabled/</code><br/>
-          <code>sudo rm /etc/nginx/sites-enabled/default</code><br/>
-          <code>sudo nginx -t</code><br/>
-          <code>sudo systemctl reload nginx</code>
-        </div>
-        <p>La respuesta <em>"syntax is ok / test is successful"</em> confirma que el despliegue fue exitoso.</p>
+      {/* Punto 5 */}
+      <section style={{ marginBottom: '25px' }}>
+        <h2>5. Activación y recarga</h2>
+        <p>Activamos el sitio, eliminamos la configuración por defecto y validamos con <code>sudo nginx -t</code>.</p>
+        <img src="node4.jpg" alt="Validación Nginx" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }} />
       </section>
+
+      {/* Punto 6 */}
+      <section style={{ marginBottom: '25px' }}>
+        <h2>6. Comprobación final</h2>
+        <p>Recargamos <code>http://localhost:8080</code> para verificar que el sitio carga correctamente desde el servidor Linux.</p>
+        <img src="aaaaaaaaaaaaaaaaaaaaaaaaaaa.jpg" alt="Sitio final" style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }} />
+      </section>
+
+     
     </div>
   );
 };
 
-export default DespliegueNginx;
+export default NginxDespliegue;

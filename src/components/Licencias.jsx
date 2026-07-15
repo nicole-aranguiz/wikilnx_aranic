@@ -23,6 +23,11 @@ const Licencias = () => {
           <p style={{ margin: 0 }}>$ cat /usr/share/doc/bash/copyright</p>
         </div>
         
+        {/* Evidencias de los comandos ejecutados */}
+        <img src="/2. captura licencias.jpg" alt="Listado de licencias" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+        <img src="/3. licencias.jpg" alt="Detalle licencia GPL" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+        <img src="/4. licencia copyright.jpg" alt="Detalle copyright" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+        
         <p style={{ fontSize: '0.9rem', fontStyle: 'italic', color: '#666' }}>
           * Estos comandos permiten listar los archivos de licencias comunes del sistema, leer en detalle el documento de la licencia GPL-3 y consultar la declaración de derechos de autor (copyright) del intérprete de comandos bash.
         </p>

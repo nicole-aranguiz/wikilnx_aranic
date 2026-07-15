@@ -108,6 +108,19 @@ const Licencias = () => {
         </div>
       </section>
 
+      {/* Sección final: Relación con el proyecto */}
+      <section style={{ marginTop: '30px', padding: '20px', backgroundColor: '#eef6ff', borderRadius: '8px', border: '1px solid #b3d7ff' }}>
+        <h3>Relación con el proyecto</h3>
+        <p>
+          En la implementación de este laboratorio, el sistema operativo base  <strong> Ubuntu </strong>  
+           utiliza una licencia <strong>Copyleft (GPL)</strong>, garantizando la libertad del software. 
+          Por su parte, el servidor web <strong>Nginx</strong> emplea una licencia <strong>BSD (Permisiva)</strong>, 
+          lo que permite su despliegue y uso eficiente en nuestra infraestructura[cite: 1]. 
+          Finalmente, al realizar las pruebas en un entorno <strong>Windows</strong>, trabajamos bajo un 
+          esquema de <strong>Software Propietario</strong>.
+        </p>
+      </section>
+
     </div>
   );
 };

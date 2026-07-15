@@ -73,6 +73,20 @@ const Instalacion = () => {
       
       </section>
 
+      {/* --- INICIO BLOQUE PAUTA 3.1.2 --- */}
+<div style={{ marginTop: '20px' }}>
+  <h3>Evidencia de Configuración Básica (Pauta 3.1.2)</h3>
+  
+  <p><strong>1. Hostname e IP:</strong></p>
+  <img src="/ip a .jpg" alt="Hostname e IP" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+
+  <p><strong>2. Actualizaciones del Sistema:</strong></p>
+  <img src="/vvvvvvvvvvvvvv.jpg" alt="Actualizaciones" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+
+  <p><strong>3. Firewall (UFW):</strong></p>
+  <img src="/03_ufw.png.jpg" alt="Firewall" style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid #ccc', margin: '10px 0' }} />
+</div>
+
       <section style={{ marginBottom: '30px' }}>
         <h2>2. Despliegue y Acceso Inicial</h2>
         <p>Tras la instalación de Ubuntu Server (usuario: <em>inacap</em>) y la activación de OpenSSH, se estableció la conexión remota desde el equipo anfitrión. La siguiente imagen confirma el acceso exitoso al servidor:</p>
@@ -87,17 +101,7 @@ const Instalacion = () => {
             margin: '15px 0'
           }} 
         />
-        <img 
-          src="/1. evidencia inicio de sesion.jpg" 
-          alt="Evidencia inicio de sesión srv-wiki" 
-          style={{ 
-            width: '100%', 
-            maxWidth: '700px', 
-            borderRadius: '8px', 
-            border: '1px solid #ccc',
-            margin: '15px 0'
-          }} 
-        />
+       
         {/* Nueva captura agregada */}
         <img 
           src="/Captura de pantalla 2026-07-07 205158.jpg" 
